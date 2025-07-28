@@ -766,6 +766,49 @@
             display: flex;
             align-items: center;
         }
+
+        /* --- Navigation Buttons for Slideshow --- */
+.nav-button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--light-text);
+    border: none;
+    padding: 15px 18px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 100; /* Ensure buttons are above slides */
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    user-select: none; /* Prevent text selection on click */
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-button.prev {
+    left: 20px;
+}
+
+.nav-button.next {
+    right: 20px;
+}
+
+/* Hide navigation buttons for very small screens if desired */
+@media only screen and (max-width: 480px) {
+    .nav-button {
+        padding: 10px 12px;
+        font-size: 20px;
+    }
+    .nav-button.prev {
+        left: 10px;
+    }
+    .nav-button.next {
+        right: 10px;
+    }
+}
     </style>
 </head>
 <body>
@@ -1431,5 +1474,6 @@
             showSlide(currentSlideIndex);
         });
     </script>
+    </div> <button id="prevSlide" class="nav-button prev">&#10094;</button> <button id="nextSlide" class="nav-button next">&#10095;</button> <script src="slideshow.js"></script>
 </body>
 </html>
